@@ -1,0 +1,29 @@
+(function (angular) {
+  'use strict';
+
+  angular
+      .module('application')
+      .config(configureApplication);
+
+  function configureApplication($httpProvider, $routeProvider) {
+    $httpProvider.interceptors.push('authInterceptor');
+    $httpProvider.defaults.headers.common['Accept'] = 'application/json';
+    $httpProvider.defaults.headers.common['Content-Type'] = 'application/json';
+
+    $routeProvider
+        .when('/', {
+          templateUrl: '<%= asset_path('pages/home.html') %>',
+          controller: 'MeCtrl'
+        })
+        .when('/users/login', {
+          templateUrl: '<%= asset_path('pages/login.html') %>',
+          controller: 'LoginCtrl'
+        })
+        .when('/users/register', {
+          templateUrl: '<%= asset_path('pages/register.html') %>',
+          controller: 'RegisterCtrl'
+        })
+        .otherwise({redirectTo: '/'});
+  }
+
+})(window.angular);

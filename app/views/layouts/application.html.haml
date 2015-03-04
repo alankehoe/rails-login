@@ -1,0 +1,16 @@
+!!! 5
+%html{:lang => 'en', 'ng-app' => 'application'}
+%head
+  %meta{:charset => 'utf-8'}
+  %title
+    Application
+
+  %meta{:name => 'viewport', :content => 'width=device-width'}
+  %meta{:name => 'apple-mobile-web-app-capable', :content => 'yes'}
+  %meta{:name => 'apple-mobile-web-app-status-bar-style', :content => 'black'}
+  = stylesheet_link_tag 'application', :media => 'all'
+  = javascript_include_tag 'application'
+  = csrf_meta_tag
+
+%body
+  %ng-view

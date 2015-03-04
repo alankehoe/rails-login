@@ -1,0 +1,20 @@
+(function (angular) {
+  'use strict';
+
+  angular
+      .module('application')
+      .directive('navbar', navbar);
+
+  function navbar(Session) {
+    return {
+      restrict: 'E',
+      templateUrl: '<%= asset_path('directives/navbar.html') %>',
+      link: function (scope, elem, attr) {
+        scope.logout = function () {
+          Session.logout();
+        }
+      }
+    }
+  }
+
+})(window.angular);
