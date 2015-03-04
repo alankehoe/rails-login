@@ -4,7 +4,6 @@
   angular
       .module('application', [
         'ngRoute',
-        'ngAnimate',
         'ui.bootstrap'
       ]);
 
